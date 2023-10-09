@@ -1,3 +1,58 @@
+/* app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.bg-blue-500 {
+    background-color: blue; /* Je kunt de gewenste achtergrondkleur hier instellen */
+}
+
+.text-white {
+    color: white; /* Je kunt de gewenste tekstkleur hier instellen */
+}
+
+.py-4 {
+    padding-top: 1rem; /* Hier kun je de gewenste bovenvulling aanpassen */
+    padding-bottom: 1rem; /* Hier kun je de gewenste ondervulling aanpassen */
+}
+
+.text-4xl {
+    font-size: 2.25rem; /* Hier kun je de gewenste tekstgrootte aanpassen */
+    font-weight: 800; /* Hier kun je de gewenste lettertype-dikte aanpassen */
+}
+
+/* Navigatiekoppelingen */
+.hover\:text-blue-500:hover {
+    color: blue; /* Je kunt de gewenste tekstkleur voor hover hier instellen */
+}
+
+/* Containerstijlen */
+.container {
+    max-width: 100%; /* Hier kun je de gewenste maximale breedte aanpassen */
+    padding-right: 1rem; /* Hier kun je de gewenste rechtervulling aanpassen */
+    padding-left: 1rem; /* Hier kun je de gewenste linkervulling aanpassen */
+}
+
+.bg-white {
+    background-color: white; /* Je kunt de gewenste achtergrondkleur hier instellen */
+}
+
+.p-4 {
+    padding: 1rem; /* Hier kun je de gewenste padding aanpassen */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* Hier kun je de gewenste border-radius aanpassen */
+}
+
+.shadow-lg {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Hier kun je de gewenste schaduwstijl aanpassen */
+}

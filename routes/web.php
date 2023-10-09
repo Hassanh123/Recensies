@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
+
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/index', [ReviewController::class, 'index'])->name('index');
+Route::get('/reviews', [ReviewController::class, 'reviews'])->name('reviews');
+Route::get('/overons', [ReviewController::class, 'overons'])->name('overons');
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
