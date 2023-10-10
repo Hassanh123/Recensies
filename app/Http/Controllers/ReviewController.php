@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recensies;
-
-
-
+use App\Models\Like;
 
 use Illuminate\Http\Request;
 
@@ -17,8 +15,10 @@ class ReviewController  extends Controller
     public function index()
     {
         $recensies = Recensies::all();
-        return view('index', ['recensies' => $recensies]);
+        $like = Like::first();
+        return view('index', ['recensies' => $recensies, 'like' => $like]);
     }
+
 
 
 
@@ -28,6 +28,7 @@ class ReviewController  extends Controller
     public function reviews()
     {
         $recensies = Recensies::all();
+
 
         return view('reviews', compact('recensies'));
     }
@@ -65,21 +66,34 @@ class ReviewController  extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+    public function edit($id) {
+
+
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $like = Like::find($id);
+
+    // If the Like model doesn't exist, create a new one
+    if (!$like) {
+        $like = new Like();
+        $like->count = 1;
+    } else {
+        // Increment the like count
+        $like->count++;
     }
+
+    // Save the Like model to the database
+    $like->save();
+
+    // Redirect back to the previous page (or any other page you prefer)
+    return redirect()->back();
+
+}
 
     /**
      * Remove the specified resource from storage.

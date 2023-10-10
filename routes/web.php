@@ -23,6 +23,19 @@ Route::get('/reviews', [ReviewController::class, 'reviews'])->name('reviews');
 Route::get('/overons', [ReviewController::class, 'overons'])->name('overons');
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+Route::patch('/like/{id}', [ReviewController::class, 'update'])->name('like.update');
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

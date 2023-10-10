@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,6 +59,7 @@
                     </div>
                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-2 rounded focus:outline-none focus:ring focus:ring-blue-600">Verzenden</button>
                 </form>
+                
             </div>
         </div>
     </div>

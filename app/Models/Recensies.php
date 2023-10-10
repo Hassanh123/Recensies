@@ -12,6 +12,8 @@ class Recensies extends Model
     protected $primaryKey = 'Id';
     public $timestamps = false;
     protected $fillable = ['Naam', 'Recensie', 'Beoordeling'];
+    
 }
+
 
 
