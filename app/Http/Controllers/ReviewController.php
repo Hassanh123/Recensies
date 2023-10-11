@@ -14,6 +14,7 @@ class ReviewController  extends Controller
      */
     public function index()
     {
+
         $recensies = Recensies::all();
         $like = Like::first();
         return view('index', ['recensies' => $recensies, 'like' => $like]);
@@ -34,9 +35,9 @@ class ReviewController  extends Controller
     }
 
     public function overons()
-{
-    return view('overons');
-}
+    {
+        return view('overons');
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -46,7 +47,7 @@ class ReviewController  extends Controller
         $validatedData = $request->validate([
             'Naam' => 'required|string|max:255',
             'Recensie' => 'required|string',
-            'Beoordeling' => 'required|integer|between:1,5',
+            'Beoordeling' => 'required|integer',
         ]);
 
         $recensie = new Recensies;
@@ -66,9 +67,8 @@ class ReviewController  extends Controller
         //
     }
 
-    public function edit($id) {
-
-
+    public function edit($id)
+    {
     }
 
     /**
@@ -76,24 +76,18 @@ class ReviewController  extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $like = Like::find($id);
 
-    // If the Like model doesn't exist, create a new one
-    if (!$like) {
-        $like = new Like();
-        $like->count = 1;
-    } else {
-        // Increment the like count
-        $like->count++;
+        if (!$like) {
+            $like = new Like();
+            $like->count = 1;
+        } else {
+            $like->count++;
+        }
+        $like->save();
+        return redirect()->back();
     }
-
-    // Save the Like model to the database
-    $like->save();
-
-    // Redirect back to the previous page (or any other page you prefer)
-    return redirect()->back();
-
-}
 
     /**
      * Remove the specified resource from storage.

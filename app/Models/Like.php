@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    protected $table = 'likes'; // Specify the table name if it's different from the default
-    protected $primaryKey = 'id'; // Specify the primary key name
+    protected $table = 'likes'; 
+    protected $primaryKey = 'id';
     protected $fillable = ['count'];
     public $timestamps = false;
 }
